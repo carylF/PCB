@@ -9,3 +9,4 @@ db = SQLAlchemy(pcb)
 
 if __name__ == '__main__':
     pcb.run()
+    db.create_all()
