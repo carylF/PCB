@@ -1,4 +1,6 @@
-from app import pcb
+from app import pcb, db
 
 if __name__ == '__main__':
-    pcb.run(debug=True)
+  db.create_all()
+  print pcb.url_map
+  pcb.run(debug=True)

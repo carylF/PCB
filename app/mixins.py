@@ -1,5 +1,5 @@
 from datetime import datetime
-from pcbuilder import db
+from app import db
 
 
 class PersistenceMixin(object):
@@ -8,7 +8,7 @@ class PersistenceMixin(object):
 
   Methods:
     save(): Adds an object to the database. It simply
-      serves to ensure that there is a clean seaparation 
+      serves to ensure that there is a clean seaparation
       between model and controller (view), and to present
       a clean API for data persistence.
     delete(): Removes an object from the database
@@ -48,7 +48,7 @@ class SerializationMixin(object):
   '''
   Mixin to allow a class to be easily serialized to JSON
   Methods:
-    serialize(): simplejson looks for this to serialize an object. 
+    serialize(): simplejson looks for this to serialize an object.
       This will allow for seamless serialization. The internal
       fix_encoding_issues function patches over any issues with
       json, such as date serialization
@@ -74,7 +74,7 @@ class PasswordMixin(object):
     hashing and comparing.
     Methods:
         hash(password, salt_length=10): Hashes a password with bcrypt, and default salt length of 10
-        compare(password, hash): Compares a hash to a password using a constant time algorithm to 
+        compare(password, hash): Compares a hash to a password using a constant time algorithm to
             prevent timing attacks.
     '''
     @classmethod

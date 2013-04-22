@@ -7,6 +7,4 @@ pcb = Flask(__name__)
 pcb.config.from_object(settings)
 db = SQLAlchemy(pcb)
 
-if __name__ == '__main__':
-    pcb.run()
-    db.create_all()
+from views import *

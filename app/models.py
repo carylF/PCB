@@ -1,4 +1,4 @@
-from pcbuilder import db
+from app import db
 from mixins import PersistenceMixin, SerializationMixin, PasswordMixin
 
 class BaseModelMixin(PersistenceMixin, SerializationMixin):
@@ -15,18 +15,21 @@ class User(db.Model, BaseModelMixin, PasswordMixin):
   first_name = db.Column(db.String)
   last_name = db.Column(db.String)
 
-  def __init__(self, email_address, password, first_name, last_name):
+  def __init__(self, email_address, password, first_name, last_name, phone_number, address, city):
     self.email_address = email_address
     self.password = hash_(password)
     self.first_name = first_name
     self.last_name = last_name
+    self.phone_number = phone_number
+    self.address = address
+    self.city = city
 
   def __repr__(self):
     return '%s %s' % (self.first_name, self.last_name)
 
   def authenticate(self, email_address, password):
     user = User.find(User.email_address == email_address)
-    if user and compare(password, user.password):
+    if user is not None and compare(password, user.password):
       return user
     return None
 
@@ -35,11 +38,13 @@ class Part(db.Model, BaseModelMixin):
   name = db.Column(db.String)
   photo = db.Column(db.String)
   price = db.Column(db.String)
+  description = db.Column(db.String)
 
-  def __init__(self, name, photo, price):
+  def __init__(self, name, photo, price, description):
     self.name = name
     self.photo = photo
     self.price = price
+    self.description = description
 
   def __repr__(self):
     return self.name

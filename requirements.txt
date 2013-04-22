@@ -7,8 +7,6 @@ Jinja2==2.6
 MarkupSafe==0.15
 passlib==1.6.1
 py-bcrypt==0.3
-e git://github.com/jgeewax/pyhaml-jinja.git@a0d14e1ec0fbfb738d1e56b2b50ba08abeb24226#egg=pyhaml_jinja-dev
 python-memcached==1.48
 requests==0.14.2
 simplejson==2.6.1
-
