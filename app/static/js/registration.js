@@ -20,7 +20,7 @@ $(document).ready(function(){
 					},
 					cpwd:{
 						required:true,
-						equalTo: "#pwd"
+						equalTo: "#password"
 					},
 					user_type:"required"
 					

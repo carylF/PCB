@@ -1,0 +1,51 @@
+<!DOCTYPE html> 
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>PCBuilder {{ title or "Home" }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/css/bootstrap.css" rel="stylesheet">
+    <link href="static/css/lol.css" rel="stylesheet">
+    <link href="static/css/bootstrap-responsive.css" rel="stylesheet">
+  </head>
+
+  <body>	  
+
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" >
+          <div class="navbar-inner">
+            <div class="container" >                
+
+              <a class="brand" href="">2KJG PC Builder</a>
+
+              <div class="nav-collapse collapse">
+                <ul class="nav">
+                <li><a href="{{ url_for('frontpage') }}">Home</a></li>
+                <li class="active"><a href="{{ url_for('register') }}">Register</a></li>
+                <li><a href="{{ url_for('selectbuild,html') }}">Build a PC</a></li>
+                <li><a href="#contact">About Us</a></li>
+                <li><a href="#help">Help</a></li>                
+                </ul>           
+              </div>                
+            </div>                
+          </div>
+      </div>
+
+      {% block body %}{% endblock %}
+
+    </div>
+    <script type="text/javascript" src="static/js/jquery.js"></script>
+    <script type="text/javascript" src="static/js/jquery.validate.js"></script>
+    <script type="text/javascript" src="static/js/toJSON.js"></script>
+    <script type="text/javascript" src="static/js/bootstrap.js"></script>
+    <script type="text/javascript" src="static/js/registration.js"></script>
+    <script type="text/javascript">
+      $('div.btn-group button').click(function(){
+
+      $("#user_type").attr('value', $(this).attr('id'));
+
+      })
+    </script>
+  </body>
+</html>
+
