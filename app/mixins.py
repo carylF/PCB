@@ -1,5 +1,6 @@
 from datetime import datetime
 from app import db
+import bcrypt
 
 
 class PersistenceMixin(object):
@@ -77,10 +78,8 @@ class PasswordMixin(object):
         compare(password, hash): Compares a hash to a password using a constant time algorithm to
             prevent timing attacks.
     '''
-    @classmethod
-    def hash_(cls, password, salt_length=10):
+    def hash_(self, password, salt_length=10):
         return bcrypt.hashpw(password, bcrypt.gensalt(salt_length))
 
-    @classmethod
-    def compare(cls, password, hash):
+    def compare(self, password, hash):
         return bcrypt.hashpw(password, hash) == hash

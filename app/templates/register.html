@@ -2,7 +2,7 @@
 {% block body %}
 
 <div class="well">    
-<form id="signup" class="form-horizontal" method="post">
+<form id="signup" class="form-horizontal" method="post" action="{{ url_for('register') }}">
 <legend>Sign Up</legend>		
 <div class="control-group">
 <label class="control-label">First Name</label>
@@ -75,7 +75,7 @@
 <div class="control-group">
 <label class="control-label" for="input01"></label>
 <div class="controls">
-<button type="submit" class="btn btn-success" rel="tooltip" title="first tooltip">Create My Account</button>
+<input type="submit" class="btn btn-success" rel="tooltip" title="first tooltip" value="Create My Account">
 
 </div>
 

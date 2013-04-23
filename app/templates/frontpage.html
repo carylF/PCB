@@ -1,45 +1,7 @@
-<!DOCTYPE html>
 
-<html lang="en">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>2KJG Build-a-Pc</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="static/css/bootstrap.css" rel="stylesheet">
-        <link href="static/css/lol.css" rel="stylesheet">
-        
-        <link href="css/bootstrap-responsive.css" rel="stylesheet">    
-    </head>
-    
-    <body>
-    
-        <div class="navbar navbar-inverse navbar-fixed-top" >
-            <div class="navbar-inner">
-                <div class="container" >                
-                
-                    <a class="brand" href="">2KJG PC Builder</a>
-                    
-                    <div class="nav-collapse collapse">
-                        <ul class="nav">
-                            <li class="active"><a href="">Home</a></li>
-                            <li><a href="signup.html">Register</a></li>
-                            <li><a href="selectbuild.html">Build a PC</a></li>
-                            <li><a href="#contact">About Us</a></li>
-                            <li><a href="#contact">Help</a></li>                
-                        </ul>
-                        
-                        <form class="navbar-form pull-right">
-                            <input class="span2" type="text" placeholder="Email">
-                            <input class="span2" type="password" placeholder="Password">
-                            
-                            <button type="submit" class="btn"><a href="frNT2.html">Sign in</a></button>  
-                            
-                        </form>                
-                    </div>                
-                </div>                
-            </div>
-        </div>
-                
+{% extends "base.html" %}
+
+{% block body %}
                 <div class="container">               
                     <div class="hero-unit" id='navbar'>
                         <h1>Welcome to 2KJG Build-A-PC.</h1>
@@ -69,31 +31,6 @@
                         
                     </div>
                     
-                </div>
-            </div>
-            
-            <hr/>
-            
-            <div class="container">
-                <footer><p>© 2KJG 2013</p></footer>
-            </div>
-            
-            
-        </div>
-        
-        <script src="js/jquery.js"></script>
-        <script src="js/bootstrap-transition.js"></script>
-        <script src="js/bootstrap-alert.js"></script>
-        <script src="js/bootstrap-modal.js"></script>
-        <script src="js/bootstrap-dropdown.js"></script>
-        <script src="js/bootstrap-scrollspy.js"></script>
-        <script src="js/bootstrap-tab.js"></script>
-        <script src="js/bootstrap-tooltip.js"></script>
-        <script src="js/bootstrap-popover.js"></script>
-        <script src="js/bootstrap-button.js"></script>
-        <script src="js/bootstrap-collapse.js"></script>
-        <script src="js/bootstrap-carousel.js"></script>
-        <script src="js/bootstrap-typeahead.js"></script>
-        
-    </body>
-</html>
+                  </div>
+                  {% endblock %}
+

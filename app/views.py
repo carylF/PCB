@@ -1,4 +1,4 @@
-from flask import render_template, request, flash
+from flask import render_template, request, flash, redirect, url_for
 from app.sessions import sessions, login_required, guest_required
 from werkzeug import secure_filename
 import os
@@ -25,8 +25,8 @@ def login():
 @pcb.route('/register', methods=['GET', 'POST'])
 def register():
   if request.method == 'POST':
-    u = request.post.to_dict()
-    u.pop('conpasswd', None)
+    u = request.form.to_dict()
+    u.pop('cpwd', None)
     user = User.create(**u)
     sessions.create(user.id)
     return redirect(url_for('dashboard'))

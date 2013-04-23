@@ -14,20 +14,22 @@ class User(db.Model, BaseModelMixin, PasswordMixin):
   password = db.Column(db.String)
   first_name = db.Column(db.String)
   last_name = db.Column(db.String)
+  user_type = db.Column(db.String)
 
-  def __init__(self, email_address, password, first_name, last_name, phone_number):
+  def __init__(self, email_address, password, first_name, last_name, phone_number, user_type):
     self.email_address = email_address
-    self.password = hash_(password)
+    self.password = self.hash_(password)
     self.first_name = first_name
     self.last_name = last_name
     self.phone_number = phone_number
+    self.user_type = user_type
 
   def __repr__(self):
     return '%s %s' % (self.first_name, self.last_name)
 
   def authenticate(self, email_address, password):
     user = User.find(User.email_address == email_address)
-    if user is not None and compare(password, user.password):
+    if user is not None and self.compare(password, user.password):
       return user
     return None
 
@@ -53,9 +55,6 @@ class Build(db.Model, BaseModelMixin):
   buyer_id = db.Column(db.Integer, db.ForeignKey('user.id'))
   seller_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
-  buyer = db.relationship('User', backref=db.backref('purchases', dynamic=True))
-  seller = db.relationship('User', backref=db.backref('sales', dynamic=True))
-
   def __init__(self, title, buyer, seller):
     self.title = title
     self.buyer = buyer
@@ -70,8 +69,7 @@ class Transaction(db.Model, BaseModelMixin):
   part_id = db.Column(db.Integer, db.ForeignKey('part.id'))
   build_id = db.Column(db.Integer, db.ForeignKey('build.id'))
 
-  part = db.relationship('Part')
-  build = db.relationship('Build', backref=db.backref('transactions', dynamic=True))
+
 
   def __init__(self, part, build):
     self.part = part

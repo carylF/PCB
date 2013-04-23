@@ -20,32 +20,51 @@
 
               <div class="nav-collapse collapse">
                 <ul class="nav">
-                <li><a href="{{ url_for('frontpage') }}">Home</a></li>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
                 <li class="active"><a href="{{ url_for('register') }}">Register</a></li>
-                <li><a href="{{ url_for('selectbuild,html') }}">Build a PC</a></li>
+                <li><a href="#">Build a PC</a></li>
                 <li><a href="#contact">About Us</a></li>
                 <li><a href="#help">Help</a></li>                
-                </ul>           
+                </ul>
+                {% if 'key' not in session %}
+                <form class="navbar-form pull-right" action="{{ url_for('login') }}" method="POST">
+                  <input class="span2" type="text" placeholder="Email" name="email_address">
+                  <input class="span2" type="password" placeholder="Password" name="password">
+                  <input type="submit" class="btn" value="Sign in">              
+                </form>                 
+                {% else %}
+              
+                {% endif %}
               </div>                
             </div>                
           </div>
       </div>
 
       {% block body %}{% endblock %}
-
-    </div>
-    <script type="text/javascript" src="static/js/jquery.js"></script>
-    <script type="text/javascript" src="static/js/jquery.validate.js"></script>
-    <script type="text/javascript" src="static/js/toJSON.js"></script>
-    <script type="text/javascript" src="static/js/bootstrap.js"></script>
-    <script type="text/javascript" src="static/js/registration.js"></script>
-    <script type="text/javascript">
-      $('div.btn-group button').click(function(){
-
-      $("#user_type").attr('value', $(this).attr('id'));
-
-      })
-    </script>
-  </body>
+</div>
+            
+            <hr/>
+            
+            <div class="container">
+                <footer><p>© 2KJG 2013</p></footer>
+            </div>
+            
+            
+        </div>
+        
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap-transition.js"></script>
+        <script src="js/bootstrap-alert.js"></script>
+        <script src="js/bootstrap-modal.js"></script>
+        <script src="js/bootstrap-dropdown.js"></script>
+        <script src="js/bootstrap-scrollspy.js"></script>
+        <script src="js/bootstrap-tab.js"></script>
+        <script src="js/bootstrap-tooltip.js"></script>
+        <script src="js/bootstrap-popover.js"></script>
+        <script src="js/bootstrap-button.js"></script>
+        <script src="js/bootstrap-collapse.js"></script>
+        <script src="js/bootstrap-carousel.js"></script>
+        <script src="js/bootstrap-typeahead.js"></script>
+        
+    </body>
 </html>
-
