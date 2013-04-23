@@ -1,90 +1,91 @@
 {% extends "base.html" %}
 {% block body %}
 
-<div class="well">    
-<form id="signup" class="form-horizontal" method="post">
-<legend>Sign Up</legend>		
-<div class="control-group">
-<label class="control-label">First Name</label>
-<div class="controls">
-<div class="input-prepend">
-<span class="add-on"><i class="icon-user"></i></span>
-<input type="text" class="input-xlarge" id="first_name" name="first_name" placeholder="First Name">
-</div>
-</div>
-</div>
-<div class="control-group ">
-<label class="control-label">Last Name</label>
-<div class="controls">
-<div class="input-prepend">
-<span class="add-on"><i class="icon-user"></i></span>
-<input type="text" class="input-xlarge" id="last_name" name="last_name" placeholder="Last Name">
-</div>
-</div>
-</div>
-<div class="control-group">
-<label class="control-label">Email</label>
-<div class="controls">
-<div class="input-prepend">
-<span class="add-on"><i class="icon-envelope"></i></span>
-<input type="text" class="input-xlarge" id="email_address" name="email_address" placeholder="email@site.com">
-</div>
-</div>	
-</div>
-<div class="control-group">
-<label class="control-label">Phone Number</label>
-<div class="controls">
-<div class="input-prepend">
-<span class="add-on"><i class="icon-phone"></i></span>
-<input type="text" class="input-xlarge" id="phone_number" name="phone_number" placeholder="xxx-xxx-xxxx">
-</div>
-</div>  
-</div>
-<div class="control-group">
-<label class="control-label">User Type</label>
-<div class="controls">
+  <div class="well">    
+    <form id="signup" class="form-horizontal" method="post">
+      <legend>Sign Up</legend>
 
-<p><div id="user_type" name="user_type" class="btn-group" data-toggle="buttons-radio">  
-<button type="button" id="consumer" class="btn btn-info">Consumer</button>	                      
-<button type="button" id="builder" class="btn btn-info">Builder</button>
-<input type="hidden" name="user_type" id="user_type" value="" /> 
+      <div class="control-group">
+        <label class="control-label">First Name</label>
+        <div class="controls">
+          <div class="input-prepend">
+            <span class="add-on"><i class="icon-user"></i></span>
+            <input type="text" class="input-xlarge" id="first_name" name="first_name" placeholder="First Name">
+          </div>
+        </div>
+      </div>
 
-</div></p>
+      <div class="control-group ">
+        <label class="control-label">Last Name</label>
+        <div class="controls">
+          <div class="input-prepend">
+            <span class="add-on"><i class="icon-user"></i></span>
+            <input type="text" class="input-xlarge" id="last_name" name="last_name" placeholder="Last Name">
+          </div>
+        </div>
+      </div>
 
-</div>
-</div>
-<div class="control-group">
-<label class="control-label">Password</label>
-<div class="controls">
-<div class="input-prepend">
-<span class="add-on"><i class="icon-lock"></i></span>
-<input type="Password" id="password" class="input-xlarge" name="password" placeholder="Password">
-</div>
-</div>
-</div>
-<div class="control-group">
-<label class="control-label">Confirm Password</label>
-<div class="controls">
-<div class="input-prepend">
-<span class="add-on"><i class="icon-lock"></i></span>
-<input type="Password" id="cpwd" class="input-xlarge" name="cpwd" placeholder="Re-enter Password">
-</div>
-</div>
-</div>
+      <div class="control-group">
+        <label class="control-label">Email</label>
+        <div class="controls">
+          <div class="input-prepend">
+            <span class="add-on"><i class="icon-envelope"></i></span>
+            <input type="text" class="input-xlarge" id="email_address" name="email_address" placeholder="email@site.com">
+          </div>
+        </div>	
+      </div>
 
-<div class="control-group">
-<label class="control-label" for="input01"></label>
-<div class="controls">
-<button type="submit" class="btn btn-success" rel="tooltip" title="first tooltip">Create My Account</button>
+      <div class="control-group">
+        <label class="control-label">Phone Number</label>
+        <div class="controls">
+          <div class="input-prepend">
+            <span class="add-on"><i class="icon-asterisk"></i></span>
+            <input type="text" class="input-xlarge" id="phone_number" name="phone_number" placeholder="xxx-xxx-xxxx">
+          </div>
+        </div>  
+      </div>
 
-</div>
+      <div class="control-group">
+        <label class="control-label">User Type</label>
+        <div class="controls">
 
-</div>
+          <p><div id="user_type" name="user_type" class="btn-group" data-toggle="buttons-radio">  
+            <button type="button" id="consumer" class="btn btn-info">Consumer</button>	                      
+            <button type="button" id="builder" class="btn btn-info">Builder</button>
+            <input type="hidden" name="user_type" id="user_type" value="" />
+          </div></p>
+        </div>
+      </div>
 
-</form>
+      <div class="control-group">
+        <label class="control-label">Password</label>
+        <div class="controls">
+          <div class="input-prepend">
+            <span class="add-on"><i class="icon-lock"></i></span>
+            <input type="Password" id="password" class="input-xlarge" name="password" placeholder="Password">
+          </div>
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <label class="control-label">Confirm Password</label>
+        <div class="controls">
+          <div class="input-prepend">
+            <span class="add-on"><i class="icon-lock"></i></span>
+            <input type="Password" id="cpwd" class="input-xlarge" name="cpwd" placeholder="Re-enter Password">
+          </div>
+        </div>
+      </div>
 
-</div>
-</div>
-<pre id="result">
-</pre>
+      <div class="control-group">
+        <label class="control-label" for="input01"></label>
+          <div class="controls">
+          <button type="submit" class="btn btn-success" rel="tooltip" title="first tooltip">Create My Account</button>
+          </div>
+      </div>
+
+    </form>
+  </div>
+  <pre id="result">
+  </pre>
 {% endblock %}
