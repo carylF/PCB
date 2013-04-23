@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Add a Part{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="span6">
+    <form class="form horizontal" action="{{ url_for('add_part') }}" method="POST" enctype="multipart/form-data">
+      <fieldset>
+        <legend>Add a Part</legend>
+        <div class="control-group">
+          <label class="control-label" for="name">Part Name:</label>
+          <div class="controls">
+            <input type="text" id="name" placeholder="Part Name">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="price">Price:</label>
+          <div class="controls">
+            <input type="text" id="name" placeholder="Price">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="photo">Photo:</label>
+          <div class="controls">
+            <input type="file" id=v>"file">
+          </div>
+        </div>
+        <div class="control-group">
+          <input type="submit" value="Add Part" class="btn btn-large">
+        </div>
+      </fieldset>
+    </form>
+</div>
+{% endblock %}

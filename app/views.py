@@ -1,5 +1,7 @@
 from flask import render_template, request, flash
 from app.sessions import sessions, login_required, guest_required
+from werkzeug import secure_filename
+import os
 
 from app import pcb
 from app.models import *
@@ -37,6 +39,25 @@ def add_build():
   if request.method == 'POST':
     build = Build(**request.form)
   return render_template('add_build.html')
+
+@pcb.route('/dashboard/add_part')
+@login_required
+def add_part():
+  if request.method == 'POST':
+    photo = request.files['photo']
+    if photo is not None:
+      filename = os.path.join(pcb.config['UPLOAD_FOLDER'], secure_filename(photo.filename))
+      photo.save(filename)
+      p = request.form.to_dict(flat=True)
+      p['photo'] = filename
+      part = Part.create(**p)
+      flash('Part saved successfully')
+      return redirect(url_for('dashboard'))
+    else:
+      flash(u'No file given')
+      return redirect(url_for('add_part'))
+  return render_template('add_part.html')
+
 
 @pcb.route('/dashboard/edit')
 @login_required
