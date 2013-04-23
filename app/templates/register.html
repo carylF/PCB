@@ -1,0 +1,126 @@
+<!DOCTYPE html> 
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/css/bootstrap.css" rel="stylesheet">
+    <link href="static/css/lol.css" rel="stylesheet">
+    <link href="static/css/bootstrap-responsive.css" rel="stylesheet">
+</head>
+
+  <body>	  
+	
+ 	<div class="container">
+     <div class="navbar navbar-inverse navbar-fixed-top" >
+            <div class="navbar-inner">
+                <div class="container" >                
+                
+                    <a class="brand" href="">2KJG PC Builder</a>
+                    
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                        <li><a href="frontpage.html">Home</a></li>
+                        <li class="active"><a href="signup.html">Register</a></li>
+                        <li><a href="selectbuild.html">Build a PC</a></li>
+                        <li><a href="#contact">About Us</a></li>
+                        <li><a href="#help">Help</a></li>                
+                        </ul>           
+                    </div>                
+                </div>                
+            </div>
+        </div> 
+
+	<div class="well">    
+	      <form id="signup" class="form-horizontal" method="post">
+			<legend>Sign Up</legend>		
+			<div class="control-group">
+		        <label class="control-label">First Name</label>
+				<div class="controls">
+				    <div class="input-prepend">
+					<span class="add-on"><i class="icon-user"></i></span>
+						<input type="text" class="input-xlarge" id="first_name" name="first_name" placeholder="First Name">
+					</div>
+				</div>
+			</div>
+			<div class="control-group ">
+		        <label class="control-label">Last Name</label>
+				<div class="controls">
+				    <div class="input-prepend">
+					<span class="add-on"><i class="icon-user"></i></span>
+						<input type="text" class="input-xlarge" id="last_name" name="last_name" placeholder="Last Name">
+					</div>
+				</div>
+			</div>
+			<div class="control-group">
+		        <label class="control-label">Email</label>
+				<div class="controls">
+				    <div class="input-prepend">
+					<span class="add-on"><i class="icon-envelope"></i></span>
+						<input type="text" class="input-xlarge" id="email_address" name="email_address" placeholder="email@site.com">
+					</div>
+				</div>	
+			</div>
+			<div class="control-group">
+		        <label class="control-label">User Type</label>
+				<div class="controls">
+				    
+						<p><div id="user_type" name="user_type" class="btn-group" data-toggle="buttons-radio">  
+	                    <button type="button" id="consumer" class="btn btn-info">Consumer</button>	                      
+	                    <button type="button" id="builder" class="btn btn-info">Builder</button>
+	                    <input type="hidden" name="consumer_type" id="consumer_type" value="" /> 
+	                    
+	                  </div></p>
+					
+				</div>
+			</div>
+			<div class="control-group">
+		        <label class="control-label">Password</label>
+				<div class="controls">
+				    <div class="input-prepend">
+					<span class="add-on"><i class="icon-lock"></i></span>
+						<input type="Password" id="password" class="input-xlarge" name="password" placeholder="Password">
+					</div>
+				</div>
+			</div>
+			<div class="control-group">
+		        <label class="control-label">Confirm Password</label>
+				<div class="controls">
+				    <div class="input-prepend">
+					<span class="add-on"><i class="icon-lock"></i></span>
+						<input type="Password" id="cpwd" class="input-xlarge" name="conpasswd" placeholder="Re-enter Password">
+					</div>
+				</div>
+			</div>
+			
+			<div class="control-group">
+			<label class="control-label" for="input01"></label>
+		      <div class="controls">
+		       <button type="submit" class="btn btn-success" rel="tooltip" title="first tooltip">Create My Account</button>
+		       
+		      </div>
+		
+		</div>
+		
+		  </form>
+
+	   </div>
+	</div>
+	<pre id="result">
+	</pre>
+  
+    <!-- Javascript placed at the end of the file to make the  page load faster -->
+    <script type="text/javascript"src="static/js/jquery.js"></script>
+	<script type="text/javascript" src="static/js/jquery.validate.js"></script>
+	<script type="text/javascript" src="static/js/toJSON.js"></script>
+	<script type="text/javascript" src="static/js/bootstrap.js"></script>
+	<script type="text/javascript">
+		$('div.btn-group button').click(function(){
+
+			$("#consumer_type").attr('value', $(this).attr('id'));
+
+		})
+	</script>
+  </body>
+</html>
+
