@@ -1,48 +1,8 @@
 {% extends "base.html" %}
 {% block body %}
-<form id="signup" class="form-horizontal" method="post" action="{{ url_for('register') }}">
-<legend>Sign Up</legend>		
-<div class="control-group">
-<label class="control-label">First Name</label>
-<div class="controls">
-<div class="input-prepend">
-<span class="add-on"><i class="icon-user"></i></span>
-<input type="text" class="input-xlarge" id="first_name" name="first_name" placeholder="First Name">
-</div>
-</div>
-</div>
-<div class="control-group ">
-<label class="control-label">Last Name</label>
-<div class="controls">
-<div class="input-prepend">
-<span class="add-on"><i class="icon-user"></i></span>
-<input type="text" class="input-xlarge" id="last_name" name="last_name" placeholder="Last Name">
-</div>
-</div>
-</div>
-<div class="control-group">
-<label class="control-label">Email</label>
-<div class="controls">
-<div class="input-prepend">
-<span class="add-on"><i class="icon-envelope"></i></span>
-<input type="text" class="input-xlarge" id="email_address" name="email_address" placeholder="email@site.com">
-</div>
-</div>	
-</div>
-<div class="control-group">
-<label class="control-label">Phone Number</label>
-<div class="controls">
-<div class="input-prepend">
-<span class="add-on"><i class="icon-phone"></i></span>
-<input type="text" class="input-xlarge" id="phone_number" name="phone_number" placeholder="xxx-xxx-xxxx">
-</div>
-</div>  
-</div>
-<div class="control-group">
-<label class="control-label">User Type</label>
 <div class="controls">
   <div class="well">    
-    <form id="signup" class="form-horizontal" method="post">
+    <form id="signup" class="form-horizontal" method="post" action="{{ url_for('register') }}">
       <legend>Sign Up</legend>
 
       <div class="control-group">
@@ -75,10 +35,6 @@
         </div>	
       </div>
 
-<div class="control-group">
-<label class="control-label" for="input01"></label>
-<div class="controls">
-<input type="submit" class="btn btn-success" rel="tooltip" title="first tooltip" value="Create My Account">
       <div class="control-group">
         <label class="control-label">Phone Number</label>
         <div class="controls">
@@ -125,7 +81,6 @@
 </div>
 <pre id="result">
 </pre>
-{% endblock %}
       <div class="control-group">
         <label class="control-label" for="input01"></label>
           <div class="controls">

@@ -27,8 +27,9 @@ class User(db.Model, BaseModelMixin, PasswordMixin):
   def __repr__(self):
     return '%s %s' % (self.first_name, self.last_name)
 
-  def authenticate(self, email_address, password):
-    user = User.find(User.email_address == email_address)
+  @classmethod
+  def authenticate(cls, email_address, password):
+    user = cls.find(cls.email_address == email_address)
     if user is not None and self.compare(password, user.password):
       return user
     return None

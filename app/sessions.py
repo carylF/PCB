@@ -15,11 +15,15 @@ class _UserSessions(object):
     if User.find(User.id == user_id) is None:
       return None
     sess = os.urandom(24)
-    self.cache = self.cache.set(sess, user_id)
+    self.cache.set(sess, user_id)
     session['key'] = sess
     return sess
 
-  def get(self, key):
+  def get(self):
+    if 'key' not in session:
+      return None
+    key = session['key']
+    print self.cache
     user_id = self.cache.get(key)
     user = User.find(User.id == user_id)
     return user
@@ -34,7 +38,7 @@ sessions = _UserSessions()
 def login_required(f):
   @wraps(f)
   def decorated_view(*args, **kwargs):
-    if not 'key' in session and ('key' in session and sessions.get(session['key']) is None):
+    if sessions is not None and sessions.get() is None:
       return redirect(url_for('login'))
     return f(*args, **kwargs)
   return decorated_view
@@ -42,7 +46,7 @@ def login_required(f):
 def guest_required(f):
   @wraps(f)
   def decorated_view(*args, **kwargs):
-    if not 'key' in session and ('key' in session and sessions.get(session['key']) is None):
+    if sessions is not None and sessions.get() is None:
       return f(*args, **kwargs)
     flash(u'You are already logged in', 'error')
     return redirect(url_for('home'))

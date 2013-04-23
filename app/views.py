@@ -28,6 +28,7 @@ def register():
   if request.method == 'POST':
     u = request.form.to_dict()
     u.pop('cpwd', None)
+    print u
     user = User.create(**u)
     sessions.create(user.id)
     flash(u'Login successful', 'success')
