@@ -1,21 +1,20 @@
 $(document).ready(function(){
 			
-			$('#registerHere input').hover(function()
+			$('#signup input').hover(function()
 			{
 				
 				$(this).popover('toggle')
 			});
 			
-			$("#registerHere").validate({
+			$("#signup").validate({
 				rules:{
-					user_name:"required",
-					user_firstname:"required",
-					user_lastname:"required",
-					user_email:{
+					first_name:"required",
+					laast_name:"required",
+					email_address:{
 							required:true,
 							email: true
 						},
-					pwd:{
+					password:{
 						required:true,
 						minlength: 6
 					},
@@ -23,18 +22,17 @@ $(document).ready(function(){
 						required:true,
 						equalTo: "#pwd"
 					},
-					gender:"required"
+					user_type:"required"
 					
 				},
 				messages:{
-					user_name:"Enter your  username",
-					user_firstname:"Enter your first name",
-					user_lastname:"Enter your last name",
-					user_email:{
+					first_name:"Enter your first name",
+					last_name:"Enter your last name",
+					email_address:{
 						required:"Enter your email address",
 						email:"Enter valid email address"
 					},
-					pwd:{
+					password:{
 						required:"Enter your password",
 						minlength:"Password must be minimum 6 characters"
 					},
@@ -42,7 +40,7 @@ $(document).ready(function(){
 						required:"Confirm password",
 						equalTo:"Password and Confirm Password must match"
 					},
-					gender:"Select Gender"
+					user_type:"Select Gender"
 				},
 				errorClass: "help-inline",
 				errorElement: "span",
