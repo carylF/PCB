@@ -54,7 +54,7 @@ def add_build():
     build = Build(**request.form)
   return render_template('add_build.html')
 
-@pcb.route('/dashboard/add_part')
+@pcb.route('/dashboard/add_part', methods=['GET', 'POST'])
 @login_required
 def add_part():
   if request.method == 'POST':
@@ -67,11 +67,9 @@ def add_part():
       part = Part.create(**p)
       flash('Part saved successfully', 'success')
       return redirect(url_for('dashboard'))
-    else:
-      flash(u'No file given', 'error')
-      return redirect(url_for('add_part'))
+    flash(u'No file given', 'error')
+    return redirect(url_for('add_part'))
   return render_template('add_part.html')
-
 
 @pcb.route('/dashboard/edit')
 @login_required
