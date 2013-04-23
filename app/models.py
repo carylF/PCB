@@ -18,7 +18,7 @@ class User(db.Model, BaseModelMixin, PasswordMixin):
 
   def __init__(self, email_address, password, first_name, last_name, phone_number, user_type):
     self.email_address = email_address
-    self.password = self.hash_(password)
+    self.password = User.hash_(password, unique=True, convert_unicode=True)
     self.first_name = first_name
     self.last_name = last_name
     self.phone_number = phone_number
@@ -27,10 +27,10 @@ class User(db.Model, BaseModelMixin, PasswordMixin):
   def __repr__(self):
     return '%s %s' % (self.first_name, self.last_name)
 
-  @classmethod
-  def authenticate(cls, email_address, password):
-    user = cls.find(cls.email_address == email_address)
-    if user is not None and self.compare(password, user.password):
+  @staticmethod
+  def authenticate(email_address, password):
+    user = User.find(User.email_address == email_address)
+    if user is not None and User.compare(password, user.password):
       return user
     return None
 

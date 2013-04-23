@@ -27,12 +27,12 @@ class PersistenceMixin(object):
     db.session.commit()
 
   @classmethod
-  def find(cls, *criteria):
-    return cls.query.filter(*criteria).first()
+  def find(cls, *args, **kwargs):
+    return cls.query.filter(*args, **kwargs).first()
 
   @classmethod
-  def find_all(cls, *criteria):
-    return cls.query.filter(*criteria)
+  def find_all(cls, *args, **kwargs):
+    return cls.query.filter(*args, **kwargs)
 
   @classmethod
   def create(cls, *args, **kwargs):
@@ -78,8 +78,10 @@ class PasswordMixin(object):
         compare(password, hash): Compares a hash to a password using a constant time algorithm to
             prevent timing attacks.
     '''
-    def hash_(self, password, salt_length=10):
+    @staticmethod
+    def hash_(password, salt_length=10):
         return bcrypt.hashpw(password, bcrypt.gensalt(salt_length))
 
-    def compare(self, password, hash):
+    @staticmethod
+    def compare(password, hash):
         return bcrypt.hashpw(password, hash) == hash

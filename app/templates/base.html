@@ -20,23 +20,22 @@
 
               <div class="nav-collapse collapse">
                 <ul class="nav">
+                {% if 'key' not in session %}
                 <li class="active"><a href="{{ url_for('register') }}">Register</a></li>
+                {% endif %}
                 <li><a href="#">Build a PC</a></li>
-               <li><a href="">Home</a></li>
-                <li class="active"><a href="">Register</a></li>
+                <li><a href="">Home</a></li>
                 <li><a href="">Build a PC</a></li>
                 <li><a href="#contact">About Us</a></li>
                 <li><a href="#help">Help</a></li>                
-                </ul>
-                {% if 'key' not in session %}
-                <form class="navbar-form pull-right" action="{{ url_for('login') }}" method="POST">
-                  <input class="span2" type="text" placeholder="Email" name="email_address">
-                  <input class="span2" type="password" placeholder="Password" name="password">
-                  <input type="submit" class="btn" value="Sign in">              
-                </form>                 
-                {% else %}
-              
-                {% endif %}
+                <ul class="pull-right nav">
+                  {% if 'key' not in session %}
+                  <li><a href="{{ url_for('login') }}">Login</a></li>
+                  {% else %}
+                  <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                  {% endif %}
+              </ul>
+            </ul>
               </div>                
             </div>                
           </div>
@@ -46,7 +45,7 @@
         {% if messages %}
           <ul class=flashes>
           {% for category, message in messages %}
-            <li class="category">{{ message }}</li>
+          <li class="alert alert-{{ category }}">{{ message }}</li>
           {% endfor %}
           </ul>
         {% endif %}

@@ -14,11 +14,13 @@ def home():
 @guest_required
 def login():
   if request.method == 'POST':
-    user = User.authenticate(**request.form)
+    print request.form
+    user = User.authenticate(**request.form.to_dict())
     if user is None:
       flash(u'No user with those credentials found.', 'error')
-      return render_template('login.html')
+      return redirect(url_for('login'))
     sessions.create(user.id)
+    flash(u'Login successful', 'success')
     return redirect(url_for('dashboard'))
   return render_template('login.html')
 
@@ -31,7 +33,7 @@ def register():
     print u
     user = User.create(**u)
     sessions.create(user.id)
-    flash(u'Login successful', 'success')
+    flash(u'Registration successful', 'success')
     return redirect(url_for('dashboard'))
   return render_template('register.html')
 
@@ -51,7 +53,9 @@ def dashboard():
 @login_required
 def add_build():
   if request.method == 'POST':
-    build = Build(**request.form)
+    '''Get values from request.form, and populate the parts instances.
+    Then, put the build in the DB.
+    '''
   return render_template('add_build.html')
 
 @pcb.route('/dashboard/add_part', methods=['GET', 'POST'])
@@ -80,3 +84,10 @@ def edit_build():
 @login_required
 def history():
   return render_template('history.html')
+
+
+@pcb.route('/dump')
+def dump():
+  from flask import Response
+  users = User.all()
+  return Response((str(user) for user in users))
