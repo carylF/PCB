@@ -24,6 +24,10 @@ class _UserSessions(object):
     user = User.find(User.id == user_id)
     return user
 
+  def delete(self):
+    if 'key' in session and session['key'] is not None:
+      self.cache.delete(session['key'])
+      session.pop('key', None)
 
 sessions = _UserSessions()
 

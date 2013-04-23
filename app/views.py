@@ -23,14 +23,23 @@ def login():
   return render_template('login.html')
 
 @pcb.route('/register', methods=['GET', 'POST'])
+@guest_required
 def register():
   if request.method == 'POST':
     u = request.form.to_dict()
     u.pop('cpwd', None)
     user = User.create(**u)
     sessions.create(user.id)
+    flash(u'Login successful', 'success')
     return redirect(url_for('dashboard'))
   return render_template('register.html')
+
+@pcb.route('/logout')
+@login_required
+def logout():
+  sessions.delete()
+  flash(u'Logged out successfully', 'success')
+  return redirect(url_for('home'))
 
 @pcb.route('/dashboard')
 @login_required
@@ -55,10 +64,10 @@ def add_part():
       p = request.form.to_dict(flat=True)
       p['photo'] = filename
       part = Part.create(**p)
-      flash('Part saved successfully')
+      flash('Part saved successfully', 'success')
       return redirect(url_for('dashboard'))
     else:
-      flash(u'No file given')
+      flash(u'No file given', 'error')
       return redirect(url_for('add_part'))
   return render_template('add_part.html')
 
