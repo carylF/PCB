@@ -18,7 +18,7 @@ class User(db.Model, BaseModelMixin, PasswordMixin):
 
   def __init__(self, email_address, password, first_name, last_name, phone_number, user_type):
     self.email_address = email_address
-    self.password = User.hash_(password, unique=True, convert_unicode=True)
+    self.password = User.hash_(password)
     self.first_name = first_name
     self.last_name = last_name
     self.phone_number = phone_number

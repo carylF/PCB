@@ -12,11 +12,11 @@
   <body>	  
 
     <div class="container">
-      <div class="navbar navbar-inverse navbar-fixed-top" >
+      <div class="navbar navbar-fixed-top" >
           <div class="navbar-inner">
             <div class="container" >                
 
-              <a class="brand" href="">2KJG PC Builder</a>
+              <a class="brand" href="{{ url_for('home') }}">2KJG PC Builder</a>
 
               <div class="nav-collapse collapse">
                 <ul class="nav">
@@ -24,9 +24,7 @@
                 <li class="active"><a href="{{ url_for('register') }}">Register</a></li>
                 {% endif %}
                 <li><a href="#">Build a PC</a></li>
-                <li><a href="">Home</a></li>
-                <li><a href="">Build a PC</a></li>
-                <li><a href="#contact">About Us</a></li>
+                <li><a href="#about">About Us</a></li>
                 <li><a href="#help">Help</a></li>                
                 <ul class="pull-right nav">
                   {% if 'key' not in session %}
