@@ -25,7 +25,11 @@ def login():
 @pcb.route('/register', methods=['GET', 'POST'])
 def register():
   if request.method == 'POST':
-    user = User.create(**request.form)
+    u = request.post.to_dict()
+    u.pop('conpasswd', None)
+    user = User.create(**u)
+    sessions.create(user.id)
+    return redirect(url_for('dashboard'))
   return render_template('register.html')
 
 @pcb.route('/dashboard')

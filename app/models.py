@@ -15,14 +15,12 @@ class User(db.Model, BaseModelMixin, PasswordMixin):
   first_name = db.Column(db.String)
   last_name = db.Column(db.String)
 
-  def __init__(self, email_address, password, first_name, last_name, phone_number, address, city):
+  def __init__(self, email_address, password, first_name, last_name, phone_number):
     self.email_address = email_address
     self.password = hash_(password)
     self.first_name = first_name
     self.last_name = last_name
     self.phone_number = phone_number
-    self.address = address
-    self.city = city
 
   def __repr__(self):
     return '%s %s' % (self.first_name, self.last_name)
