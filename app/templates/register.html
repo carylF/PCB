@@ -62,12 +62,13 @@
 				</div>	
 			</div>
 			<div class="control-group">
-		        <label class="control-label">User type</label>
+		        <label class="control-label">User Type</label>
 				<div class="controls">
 				    
 						<p><div id="user_type" name="user_type" class="btn-group" data-toggle="buttons-radio">  
-	                    <button type="button" class="btn btn-info">Consumer</button>  
-	                    <button type="button" class="btn btn-info">Builder</button>  
+	                    <button type="button" id="consumer" class="btn btn-info">Consumer</button>	                      
+	                    <button type="button" id="builder" class="btn btn-info">Builder</button>
+	                    <input type="hidden" name="consumer_type" id="consumer_type" value="" /> 
 	                    
 	                  </div></p>
 					
@@ -113,6 +114,13 @@
 	<script type="text/javascript" src="static/js/jquery.validate.js"></script>
 	<script type="text/javascript" src="static/js/toJSON.js"></script>
 	<script type="text/javascript" src="static/js/bootstrap.js"></script>
+	<script type="text/javascript">
+		$('div.btn-group button').click(function(){
+
+			$("#consumer_type").attr('value', $(this).attr('id'));
+
+		})
+	</script>
   </body>
 </html>
 
