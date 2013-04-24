@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="static/css/bootstrap.css" rel="stylesheet">
     <link href="static/css/lol.css" rel="stylesheet">
-    <link href="static/css/bootstrap-responsive.css" rel="stylesheet">
   </head>
 
   <body>	  
@@ -23,7 +22,7 @@
                 {% if 'key' not in session %}
                 <li><a href="{{ url_for('register') }}">Register</a></li>
                 {% endif %}
-                <li><a href="#">Build a PC</a></li>
+                <li><a href="{{ url_for('select') }}">Build a PC</a></li>
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#help">Help</a></li>                
                 <ul class="pull-right nav">

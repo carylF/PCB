@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}Build your PC{% endblock %}
+{% block body %}
+
+<div class="container">
+
+<div class="jumbotron">
+<h1>PC Builder</h1>
+<p class="lead">This is the future BUILD-A-PC page. Below, customers are given various options to customise and build their PC's from.<br> Also gaza. <br> LOL</p>
+</div>
+
+<hr>
+
+
+<div class="row-fluid">
+<div class="tabbable tabs-left"> 
+
+<ul class="nav nav-tabs">
+<li class="active"><a href="#tab1" data-toggle="tab">Overview</a></li>
+<li><a href="#tab2" data-toggle="tab">Components</a></li>
+<li><a href="#tab3" data-toggle="tab">Accessories</a></li>
+<li><a href="#tab4" data-toggle="tab">Review and Purchase</a></li>
+
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="tab1">
+<p>Insert base comp specs and options</p>
+</div>
+
+<div class="tab-pane" id="tab2">
+<p>Add various parts like motherboard options etc</p>
+
+<div class="btn-group btn-group-vertical" data-toggle="buttons-radio">
+<button type="button" class="btn">opt1</button>
+<button type="button" class="btn">opt2</button>
+<button type="button" class="btn">opt3</button>
+</div>
+
+also more divs :S
+
+</div>
+<div class="tab-pane" id="tab3">
+<p>Extra batteries, laptop bags, mice, keyboard etc</p>
+
+<div class="btn-group btn-group-vertical" data-toggle="buttons-radio">
+<button type="button" class="btn">opt1</button>
+<button type="button" class="btn">opt2</button>
+<button type="button" class="btn">opt3</button>
+</div>
+divs!!
+</div>
+
+<div class="tab-pane" id="tab4">
+<p>This is where cooper will use play to regenerate the previously selected options</p>
+
+[Final Review]
+
+</br></br>
+
+<button type="button" class="btn btn-inverse">BUY NOW!</button>
+</div>
+</div>
+</div>    
+</div>
+
+<hr>
+{% endblock %}
