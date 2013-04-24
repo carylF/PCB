@@ -80,7 +80,7 @@ def history():
 def select():
   if request.method == 'POST':
     pass
-  return render_template('selectbuild.html')
+  return render_template('select_build.html')
 
 @pcb.route('/dashboard/view_orders')
 @login_required
