@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title>PCBuilder | {% block title %}{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="static/css/bootstrap.css" rel="stylesheet">
-    <link href="static/css/lol.css" rel="stylesheet">
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/css/lol.css" rel="stylesheet">
   </head>
 
   <body>	  
@@ -22,7 +22,7 @@
                 {% if 'key' not in session %}
                 <li><a href="{{ url_for('register') }}">Register</a></li>
                 {% endif %}
-                <li><a href="{{ url_for('select') }}">Build a PC</a></li>
+                <li><a href="">Build a PC</a></li>
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#help">Help</a></li>                
                 <ul class="pull-right nav">
@@ -60,9 +60,9 @@
             
         </div>
         
-        <script src="static/js/jquery.js"></script>
-        <script src="static/js/bootstrap.js"></script>
-        <script src="static/js/jquery.validate.js"></script>
-        <script src="static/js/registration.js"></script>
+        <script src="/static/js/jquery.js"></script>
+        <script src="/static/js/bootstrap.js"></script>
+        <script src="/static/js/jquery.validate.js"></script>
+        <script src="/static/js/registration.js"></script>
     </body>
 </html>
