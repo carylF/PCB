@@ -47,6 +47,11 @@ def logout():
 def dashboard():
   return render_template('dashboard.html')
 
+@pcb.route('/dashboard/add')
+@login_required
+def add():
+  return render_template('add_build.html')
+
 @pcb.route('/dashboard/add_part', methods=['GET', 'POST'])
 @login_required
 def add_part():
