@@ -29,30 +29,62 @@
 </div>
 
 <div class="tab-pane" id="tab2">
-<p>Add various parts like motherboard options etc</p>
+<p>Select Parts:</p>
 
-<div class="btn-group btn-group-vertical" data-toggle="buttons-radio">
-<button type="button" class="btn">opt1</button>
-<button type="button" class="btn">opt2</button>
-<button type="button" class="btn">opt3</button>
+<div class="controls span2">
+<label class="checkbox">
+<input type="checkbox" value="option1" id="inlineCheckbox1"> 2GB RAM
+</label>
+<label class="checkbox">
+<input type="checkbox" value="option2" id="inlineCheckbox2"> 4GB RAM
+</label>
+<label class="checkbox">
+<input type="checkbox" value="option3" id="inlineCheckbox3"> 6GB RAM
+</label>
+<label class="checkbox">
+<input type="checkbox" value="option3" id="inlineCheckbox3"> 8GB RAM
+</label>
 </div>
 
-also more divs :S
-
+<div class="controls span2">
+<label class="checkbox">
+<input type="checkbox" value="option1" id="inlineCheckbox1"> 600GB HDD
+</label>
+<label class="checkbox">
+<input type="checkbox" value="option2" id="inlineCheckbox2"> 1TB HDD
+</label>
+<label class="checkbox">
+<input type="checkbox" value="option3" id="inlineCheckbox3"> 250GB SSD
+</label>
+<label class="checkbox">
+<input type="checkbox" value="option3" id="inlineCheckbox3"> 500GB SSD
+</label>
 </div>
+</div>
+
+
 <div class="tab-pane" id="tab3">
-<p>Extra batteries, laptop bags, mice, keyboard etc</p>
-
-<div class="btn-group btn-group-vertical" data-toggle="buttons-radio">
-<button type="button" class="btn">opt1</button>
-<button type="button" class="btn">opt2</button>
-<button type="button" class="btn">opt3</button>
+<p>Accessories</p>
+<div class="controls span2">
+<label class="checkbox">
+<input type="checkbox" value="option1" id="inlineCheckbox1"> Keyboard
+</label>
+<label class="checkbox">
+<input type="checkbox" value="option2" id="inlineCheckbox2"> Mouse
+</label>
+<label class="checkbox">
+<input type="checkbox" value="option3" id="inlineCheckbox3"> Webcam
+</label>
+<label class="checkbox">
+<input type="checkbox" value="option3" id="inlineCheckbox3"> Monitor
+</label>
 </div>
 </div>
 
 <div class="tab-pane" id="tab4">
-  <h3>Place order</h3>
-<button type="button" class="btn btn-inverse">Place Order</button>
+
+
+<a href="{{ url_for('order') }}"><button type="button" class="btn btn-inverse">Place Order</button></a>
 </div>
 </div>
 </div>    
