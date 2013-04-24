@@ -57,6 +57,12 @@ def build():
 def dashboard():
   return render_template('dashboard.html')
 
+@pcb.route('/dashboard/parts')
+@login_required
+def parts():
+  parts = Part.all()
+  return render_template('view_parts.html', parts=parts)
+
 @pcb.route('/dashboard/add')
 @login_required
 def add():
@@ -103,6 +109,13 @@ def view_orders():
   orders = Build.find_all(Build.seller_id == sessions.get().id)
   total = reduce(lambda x, y: x+y, (order.total for order in orders), 0)
   return render_template('view_orders.html', orders=orders)
+
+@pcb.route('/order')
+def order():
+  from flask import session
+  session['ordered'] = True
+  flash(u'Your order has been placed successfully', 'success')
+  return render_template('success.html')
 
 @pcb.route('/dump')
 def dump():

@@ -4,7 +4,7 @@
 
 {% block dash_content %}
 <h2>Your Orders</h2>
-{% if orders.count() > 0 %}
+{% if 'ordered' in session %}
 <table class="table table-bordered table-striped table-hover">
   <thead>
     <tr>
@@ -14,15 +14,28 @@
     </tr>
   </thead>
   <tbody>
-    {% for order in orders %}
-    <td>{{ order.buyer }}</td>
-    <td>{{ order.summary }}</td>
-    <td>{{ order.cost }}</td>
-    {% endfor %}
+    <td>Gabrielle Watson</td>
+    <td>
+      <h4>Build trim: Gold</h4>
+      <ul>
+        <li>RAM: 8GB</li>
+        <li>Hard drive: 500GB</li>
+        <li>Processor: Intel i7</li>
+        <li>
+         <h5>Software: </h5>
+         <ul>
+           <li>Skype</li>
+           <li>Chrome</li>
+           <li>MS Office Suite</li>
+           <li>Visual Studio 2013</li>
+         </ul>
+        </li>
+       </ul>
+    </td>
+    <td>$3000</td>
   </tbody>
   <tfoot>
     <tr>
-      <td></td>
       <td>Total</td>
       <td>{{ total }}</td>
     </tr>
