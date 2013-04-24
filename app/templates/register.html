@@ -92,4 +92,12 @@
   </div>
   <pre id="result">
   </pre>
+
+  <script type="text/javascript">
+  $('div.btn-group button').click(function(){
+
+    $("#user_type").attr('value', $(this).attr('id'));
+
+})
+  </script>
 {% endblock %}
