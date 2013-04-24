@@ -51,6 +51,7 @@ def dashboard():
 @login_required
 def add_part():
   if request.method == 'POST':
+    print request.form, request.files
     photo = request.files['photo']
     if photo is not None:
       filename = os.path.join(pcb.config['UPLOAD_FOLDER'], secure_filename(photo.filename))
