@@ -10,6 +10,10 @@ from app.models import *
 def home():
   return render_template('home.html')
 
+@pcb.route('/computer')
+def computer():
+  return render_template('computer.html')
+
 @pcb.route('/login', methods=['GET', 'POST'])
 @guest_required
 def login():
