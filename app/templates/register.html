@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% block title %}Register{% endblock %}
 {% block body %}
 <div class="controls">
   <div class="well">    
@@ -49,11 +50,12 @@
         <label class="control-label">User Type</label>
         <div class="controls">
 
-          <p><div id="user_type" name="user_type" class="btn-group" data-toggle="buttons-radio">  
-            <button type="button" id="consumer" class="btn btn-info">Consumer</button>	                      
-            <button type="button" id="builder" class="btn btn-info">Builder</button>
-            <input type="hidden" name="user_type" id="user_type" value="" />
+          <p><div id="user_type"  class="btn-group" data-toggle="buttons-radio">  
+            <button type="button" name="user_type" value="consumer" class="btn btn-info">Consumer</button>             
+            <button type="button" name="user_type" value="builder" class="btn btn-info">Builder</button>
+            
           </div></p>
+          <input type="hidden" name="user_type" id="user_type" value="" />
         </div>
       </div>
 
@@ -79,8 +81,6 @@
 
 </div>
 </div>
-<pre id="result">
-</pre>
       <div class="control-group">
         <label class="control-label" for="input01"></label>
           <div class="controls">
@@ -90,6 +90,11 @@
 
     </form>
   </div>
-  <pre id="result">
-  </pre>
+  <script type="text/javascript">
+  $('div.btn-group button').click(function(){
+
+    $("#user_type").attr('value', $(this).attr('id'));
+
+})
+  </script>
 {% endblock %}

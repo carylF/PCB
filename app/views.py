@@ -49,15 +49,6 @@ def logout():
 def dashboard():
   return render_template('dashboard.html')
 
-@pcb.route('/dashboard/add')
-@login_required
-def add_build():
-  if request.method == 'POST':
-    '''Get values from request.form, and populate the parts instances.
-    Then, put the build in the DB.
-    '''
-  return render_template('add_build.html')
-
 @pcb.route('/dashboard/add_part', methods=['GET', 'POST'])
 @login_required
 def add_part():
@@ -85,6 +76,18 @@ def edit_build():
 def history():
   return render_template('history.html')
 
+@pcb.route('/dashboard/select_build')
+@login_required
+def select():
+  if request.method == 'POST':
+    pass
+  return render_template('selectbuild.html')
+
+@pcb.route('/dashboard/view_orders')
+@login_required
+def view_orders():
+  orders = Build.find_all(Build.seller_id == sessions.get())
+  return render_template('view_orders.html', orders=orders)
 
 @pcb.route('/dump')
 def dump():

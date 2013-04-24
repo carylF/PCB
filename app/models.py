@@ -55,11 +55,13 @@ class Build(db.Model, BaseModelMixin):
   title = db.Column(db.String)
   buyer_id = db.Column(db.Integer, db.ForeignKey('user.id'))
   seller_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+  total = db.Column(db.Float)
 
-  def __init__(self, title, buyer, seller):
+  def __init__(self, title, buyer, seller, total):
     self.title = title
     self.buyer = buyer
     self.seller = seller
+    self.total = total
 
   def __repr__(self):
     return self.title
@@ -69,8 +71,6 @@ class Transaction(db.Model, BaseModelMixin):
   id = db.Column(db.Integer, primary_key=True)
   part_id = db.Column(db.Integer, db.ForeignKey('part.id'))
   build_id = db.Column(db.Integer, db.ForeignKey('build.id'))
-
-
 
   def __init__(self, part, build):
     self.part = part

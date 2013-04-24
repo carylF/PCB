@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}View Orders{% endblock %}
+
+{% block body %}
+<h2>Your Orders</h2>
+{% if orders %}
+<table>
+  <thead>
+    <tr>
+      <td>User</td>
+      <td>Order Summary</td>
+      <td>Cost</td>
+    </tr>
+  </thead>
+  <tbody>
+    {% for order in orders %}
+    {% endfor %}
+  </tbody>
+  <tfoot>
+    <tr>
+      <td></td>
+      <td>Total</td>
+      <td>{{ order.total }}</td>
+    </tr>
+  </tfoot>
+</table>
+{% else %}
+<p>
+  You have no orders outstanding.
+</p>
+{% endif %}
+{% endblock %}
