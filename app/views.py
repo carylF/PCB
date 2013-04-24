@@ -47,6 +47,11 @@ def logout():
 def dashboard():
   return render_template('dashboard.html')
 
+@pcb.route('/dashboard/add')
+@login_required
+def add():
+  return render_template('add_build.html')
+
 @pcb.route('/dashboard/add_part', methods=['GET', 'POST'])
 @login_required
 def add_part():
@@ -80,7 +85,7 @@ def history():
 def select():
   if request.method == 'POST':
     pass
-  return render_template('selectbuild.html')
+  return render_template('select_build.html')
 
 @pcb.route('/dashboard/view_orders')
 @login_required
