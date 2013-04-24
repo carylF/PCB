@@ -46,6 +46,12 @@ def logout():
   flash(u'Logged out successfully', 'success')
   return redirect(url_for('home'))
 
+@pcb.route('/build')
+@login_required
+def build():
+  parts = Part.all()
+  return render_template('add_build.html', parts=parts)
+
 @pcb.route('/dashboard')
 @login_required
 def dashboard():
