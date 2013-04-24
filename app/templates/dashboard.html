@@ -3,4 +3,25 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block body %}
+<div class="row">
+  <div class="well">
+    <h2>Welcome, {{ session['user'] }}</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="span3">
+    <h3>Actions</h3>
+    <ul class="nav nav-list">
+      <li class="nav-header">Builds</li>
+      <li><a href="#">Add Build</a></li>
+      <li><a href="#">Manage Builds</a></li>
+      <li class="nav-header">Account</li>
+      <li><a href="#">Update contact details</a></li>
+      <li><a href="#">Change password</a></li>
+    </ul> 
+  </div>
+  <div class="span9">
+    <h3>Lorem Ipsum</h3>
+  </div>
+</div>
 {% endblock %}

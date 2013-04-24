@@ -1,6 +1,6 @@
 from functools import wraps
 
-from flask import redirect, url_for, flash
+from flask import redirect, url_for, flash, g
 from werkzeug.contrib.cache import SimpleCache
 from flask import session
 import os
@@ -12,7 +12,8 @@ class _UserSessions(object):
     self.cache = SimpleCache()
 
   def create(self, user_id):
-    if User.find(User.id == user_id) is None:
+    user = User.find(User.id == user_id)
+    if user is None:
       return None
     sess = os.urandom(24)
     self.cache.set(sess, user_id)
@@ -25,12 +26,14 @@ class _UserSessions(object):
     key = session['key']
     user_id = self.cache.get(key)
     user = User.find(User.id == user_id)
+    session['user'] = user
     return user
 
   def delete(self):
     if 'key' in session:
       self.cache.delete(session['key'])
       session.pop('key', None)
+      session.pop('user', None)
 
 
 sessions = _UserSessions()

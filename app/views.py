@@ -90,4 +90,5 @@ def history():
 def dump():
   from flask import Response
   users = User.all()
+  print g.user
   return Response((str(user) for user in users))
