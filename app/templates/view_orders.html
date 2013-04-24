@@ -4,8 +4,8 @@
 
 {% block body %}
 <h2>Your Orders</h2>
-{% if orders %}
-<table>
+{% if orders.count() > 0 %}
+<table class="table table-bordered table-striped table-hover">
   <thead>
     <tr>
       <td>User</td>
@@ -15,13 +15,16 @@
   </thead>
   <tbody>
     {% for order in orders %}
+    <td>{{ order.buyer }}</td>
+    <td>{{ order.summary }}</td>
+    <td>{{ order.cost }}</td>
     {% endfor %}
   </tbody>
   <tfoot>
     <tr>
       <td></td>
       <td>Total</td>
-      <td>{{ order.total }}</td>
+      <td>{{ total }}</td>
     </tr>
   </tfoot>
 </table>

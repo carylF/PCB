@@ -14,7 +14,6 @@ def home():
 @guest_required
 def login():
   if request.method == 'POST':
-    print request.form
     user = User.authenticate(**request.form.to_dict())
     if user is None:
       flash(u'No user with those credentials found.', 'error')
@@ -30,7 +29,6 @@ def register():
   if request.method == 'POST':
     u = request.form.to_dict()
     u.pop('cpwd', None)
-    print u
     user = User.create(**u)
     sessions.create(user.id)
     flash(u'Registration successful', 'success')
@@ -86,7 +84,8 @@ def select():
 @pcb.route('/dashboard/view_orders')
 @login_required
 def view_orders():
-  orders = Build.find_all(Build.seller_id == sessions.get())
+  orders = Build.find_all(Build.seller_id == sessions.get().id)
+  total = reduce(lambda x, y: x+y, (order.total for order in orders), 0)
   return render_template('view_orders.html', orders=orders)
 
 @pcb.route('/dump')
